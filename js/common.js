@@ -1,4 +1,4 @@
-//global veriables
+//global variables
 var numbers = document.querySelectorAll('.number'),// выбрали все числа
    operations = document.querySelectorAll('.operation'),//выбрали кнопки с операциями
    decimalBtn  = document.getElementById('decimal'),
