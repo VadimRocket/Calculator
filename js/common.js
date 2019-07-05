@@ -1,13 +1,13 @@
-//global variables
+// глобальные переменные
 var numbers = document.querySelectorAll('.number'),// выбрали все числа
-   operations = document.querySelectorAll('.operation'),//выбрали кнопки с операциями
+   operations = document.querySelectorAll('.operation'),// выбрали кнопки с операциями
    decimalBtn  = document.getElementById('decimal'),
    clearBtns = document.querySelectorAll('.clear-btn'),
    resultBtn = document.getElementById('result'), // Результат =
    howWorkBtn = document.getElementById('howWork'),
    display = document.getElementById('display'),// Экран
    MemoryCurrentNumber = 0, // текущее значение 
-   MemoryNewNumber = false;  //Ввели мы новое число или нет (false) пссле нажатия на операторы( * / + - ) меняется на  true
+   MemoryNewNumber = false;  // Ввели мы новое число или нет (false) пссле нажатия на операторы( * / + - ) меняется на  true
    MemoryPendingOperation = '', // сохр-м операцию которая ожидается - значение текушей операции  на которую нажали
    operationsList = document.getElementById('operationsList');
 
@@ -34,7 +34,7 @@ for(var i = 0; i < operations.length; i++){
 for(var i = 0; i < clearBtns.length; i++){
     var clearBtn = clearBtns[i];
          clearBtn.addEventListener('click', function(e){    
-               clear(e.srcElement.id);  //  строка с названием id  этой кнопки  
+               clear(e.srcElement.id);  // строка с названием id  этой кнопки  
               
         });
     };
@@ -61,7 +61,7 @@ function  numberPress(number){
     console.log('Клик по кнопке с номером ' + number + ' ');
 };
 function operation(op){
-    var  localOperationMemory = display.value;  //какое число было введено в момент нажания на операнд + или -  и т.д
+    var  localOperationMemory = display.value;  // какое число было введено в момент нажания на операнд + или -  и т.д
     if(MemoryNewNumber && MemoryPendingOperation !== '='){ // true
         display.value = MemoryCurrentNumber;
     }else{
@@ -122,8 +122,8 @@ function howWork(e){
         var operationText = operations[i].value;  
         newLi.innerText = operationText;
         operationsList.appendChild(newLi); 
-
     };
+    howWorkBtn.setAttribute("disabled", "disabled");
      console.log(e);
      console.log('Клик по кнопке Как это работает !');
 };
