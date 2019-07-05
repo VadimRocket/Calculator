@@ -1,5 +1,5 @@
 // глобальные переменные
-var numbers = document.querySelectorAll('.number'),// выбрали все числа
+var numbers = document.querySelectorAll('.number'),      // выбрали все числа
    operations = document.querySelectorAll('.operation'),// выбрали кнопки с операциями
    decimalBtn  = document.getElementById('decimal'),
    clearBtns = document.querySelectorAll('.clear-btn'),
@@ -49,22 +49,19 @@ function  numberPress(number){
         display.value = number; // если true 
         MemoryNewNumber = false;
     }else{
-        if(display.value === '0'){
+        if(display.value === '0') {
             display.value = number;  // если равно заменяй это значение текущим
-         }else{
+        }else{
            display.value += number; // если  не равно прибавляй все знач-я кот ты ввел в виде строки
-    }
+        }
     };// когда вволим новое число а когда нет
-    
- 
-
     console.log('Клик по кнопке с номером ' + number + ' ');
 };
 function operation(op){
     var  localOperationMemory = display.value;  // какое число было введено в момент нажания на операнд + или -  и т.д
-    if(MemoryNewNumber && MemoryPendingOperation !== '='){ // true
+    if(MemoryNewNumber && MemoryPendingOperation !== '=') { // true
         display.value = MemoryCurrentNumber;
-    }else{
+    }else {
         MemoryNewNumber = true;
         if(MemoryPendingOperation === '+'){
             MemoryCurrentNumber += parseFloat(localOperationMemory);
@@ -74,7 +71,7 @@ function operation(op){
             MemoryCurrentNumber *= parseFloat(localOperationMemory);
         }else if(MemoryPendingOperation === '/'){
             MemoryCurrentNumber /= parseFloat(localOperationMemory);
-        }else{
+        }else {
             // =  результат
              MemoryCurrentNumber = parseFloat(localOperationMemory);
         };
@@ -86,13 +83,13 @@ function operation(op){
      console.log('Клик по кнопке с операцией ' + op + ' ');
 };
 // ф-ция добавления десятичной точки
-function decimal(arg){
+function decimal(arg) {
     var localDecimalMemory = display.value;
         if(MemoryNewNumber){ // если вводится новое число пер дается 0.
             localDecimalMemory = '0.';
             MemoryNewNumber = false;
         }else{
-            if(localDecimalMemory.indexOf('.') === -1){
+            if(localDecimalMemory.indexOf('.') === -1) {
                 localDecimalMemory  += '.';
             };
         };
@@ -101,11 +98,11 @@ function decimal(arg){
      console.log('Клик по кнопке с десятичной дробью (.) ');
 };
 
-function clear(id){ 
-    if(id === 'ce'){
+function clear(id) { 
+    if(id === 'ce') {
        display.value = '0';
        MemoryNewNumber = true;
-    }else if(id === 'c'){
+    }else if(id === 'c') {
          display.value = '0';
        MemoryNewNumber = true;
        MemoryCurrentNumber = 0;
